@@ -8,6 +8,9 @@ import "fmt"
 // In OOP perspective, this is equivalent to class 'Deck' extends []string
 type deck []string
 
+// Receiver function
+// in OOP perspective, this is similar to method in a class
+// in go convention, we don't use 'this' or 'self'
 func (d deck) print() {
 	for i, card := range d {
 		fmt.Println(i, card)
