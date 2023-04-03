@@ -4,8 +4,9 @@ import "fmt"
 
 func main() {
 	// variables()
-	arrayAndSlices()
+	// arrayAndSlices()
 	// usingCustomType()
+	// typeConversion()
 }
 
 func variables() {
@@ -45,4 +46,12 @@ func usingCustomType() {
 
 func newCard() string {
 	return "Five of diamonds"
+}
+
+func typeConversion() {
+	greeting := "Hi there!"
+	fmt.Println([]byte(greeting))
+
+	cards := newDeck()
+	fmt.Println([]byte(cards.toString()))
 }
