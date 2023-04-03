@@ -25,7 +25,8 @@ func arrayAndSlices() {
 	// Slice: dynamic size
 
 	// initializing slice
-	cards := []string{"Ace of diamonds", newCard()}
+	// cards := []string{"Ace of diamonds", newCard()}
+	cards := newDeck()
 	fmt.Println(cards)
 
 	// looping through the element, i = zero based index
@@ -35,8 +36,9 @@ func arrayAndSlices() {
 }
 
 func usingCustomType() {
-	customTypeCards := deck{"Ace of diamonds", newCard()}
-	customTypeCards.print()
+	// customTypeCards := deck{"Ace of diamonds", newCard()}
+	// customTypeCards.print()
+
 }
 
 func newCard() string {

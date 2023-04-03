@@ -8,6 +8,22 @@ import "fmt"
 // In OOP perspective, this is equivalent to class 'Deck' extends []string
 type deck []string
 
+// Similar with constructor in OOP
+func newDeck() deck {
+	cards := deck{}
+
+	cardSuites := []string{"Spades", "Diamonds", "Hearts", "Clubs"}
+	cardValues := []string{"Ace", "Two", "Three", "Four"}
+
+	for _, suit := range cardSuites {
+		for _, value := range cardValues {
+			cards = append(cards, value+" of "+suit)
+		}
+	}
+
+	return cards
+}
+
 // Receiver function
 // in OOP perspective, this is similar to method in a class
 // in go convention, we don't use 'this' or 'self'
