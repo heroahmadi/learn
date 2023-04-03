@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	variables()
+	// variables()
 	arrayAndSlices()
-	usingCustomType()
+	// usingCustomType()
 }
 
 func variables() {
@@ -27,12 +27,14 @@ func arrayAndSlices() {
 	// initializing slice
 	// cards := []string{"Ace of diamonds", newCard()}
 	cards := newDeck()
-	fmt.Println(cards)
+	hand, remaining := deal(cards, 5)
+	hand.print()
+	remaining.print()
 
 	// looping through the element, i = zero based index
-	for i, card := range cards {
-		fmt.Println(i, card)
-	}
+	// for i, card := range cards {
+	// 	fmt.Println(i, card)
+	// }
 }
 
 func usingCustomType() {

@@ -32,3 +32,8 @@ func (d deck) print() {
 		fmt.Println(i, card)
 	}
 }
+
+// Multiple return value, slice splitting
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
+}
