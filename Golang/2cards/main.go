@@ -7,6 +7,7 @@ func main() {
 	// arrayAndSlices()
 	// usingCustomType()
 	// typeConversion()
+	io()
 }
 
 func variables() {
@@ -54,4 +55,12 @@ func typeConversion() {
 
 	cards := newDeck()
 	fmt.Println([]byte(cards.toString()))
+}
+
+func io() {
+	cards := newDeck()
+	cards.saveToFile("my_cards")
+
+	cards = newDeckFromFile("my_cards")
+	cards.print()
 }
