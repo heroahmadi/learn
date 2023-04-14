@@ -67,4 +67,8 @@ func pointers() {
 	emptyStructPointer := &emptyStruct
 	emptyStructPointer.updateNameWithPointer("New first name")
 	emptyStruct.print()
+
+	// pointer shortcut
+	emptyStruct.updateNameWithPointer("Updated first name")
+	emptyStruct.print()
 }
