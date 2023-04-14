@@ -49,6 +49,6 @@ func structCreation() {
 	var emptyStruct person
 	fmt.Printf("%+v", emptyStruct)
 
-	person.updateName("New first name")
-	person.print()
+	emptyStruct.updateName("New first name")
+	emptyStruct.print()
 }
