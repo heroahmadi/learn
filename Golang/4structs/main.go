@@ -24,8 +24,13 @@ func (p person) updateName(newFirstName string) {
 	p.firstName = newFirstName
 }
 
+func (pointerToPerson *person) updateNameWithPointer(newFirstName string) {
+	(*pointerToPerson).firstName = newFirstName
+}
+
 func main() {
-	structCreation()
+	// structCreation()
+	pointers()
 }
 
 func structCreation() {
@@ -48,7 +53,18 @@ func structCreation() {
 	// default value of string in struct is a zero value (empty string, 0, or false), not nil
 	var emptyStruct person
 	fmt.Printf("%+v", emptyStruct)
+}
+
+// turn value to pointer -> use &
+// turn pointer to value -> use *
+func pointers() {
+	var emptyStruct person
+	fmt.Printf("%+v", emptyStruct)
 
 	emptyStruct.updateName("New first name")
+	emptyStruct.print()
+
+	emptyStructPointer := &emptyStruct
+	emptyStructPointer.updateNameWithPointer("New first name")
 	emptyStruct.print()
 }
