@@ -24,17 +24,23 @@ func main() {
 		go checkSite(link, c)
 	}
 
-	fmt.Println(<-c)
+	// for i := 0; i < len(links); i++ {
+	// 	fmt.Println(<-c)
+	// }
+
+	for l := range c {
+		go checkSite(l, c)
+	}
 }
 
 func checkSite(site string, c chan string) {
 	_, err := http.Get(site)
 	if err != nil {
 		fmt.Println(site, "might be down!")
-		c <- "Might be down I think"
+		c <- site
 		return
 	}
 
 	fmt.Println(site, "is up!")
-	c <- "Yup it's up"
+	c <- site
 }
