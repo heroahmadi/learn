@@ -2,12 +2,14 @@ package main
 
 import (
 	"fmt"
+	"sync"
 )
 
 var msg string
 
-func updateMessage(s string) {
+func updateMessage(s string, wg *sync.WaitGroup) {
 	msg = s
+	wg.Done()
 }
 
 func printMessage() {
@@ -23,14 +25,18 @@ func main() {
 	// printMessage(), and main().
 
 	msg = "Hello, world!"
+	var wg sync.WaitGroup
 
-	updateMessage("Hello, universe!")
-	printMessage()
+	messages := []string{
+		"Hello, universe!",
+		"Hello, cosmos!",
+		"Hello, world!",
+	}
 
-	updateMessage("Hello, cosmos!")
-	printMessage()
-
-	updateMessage("Hello, world!")
-
-	printMessage()
+	for _, message := range messages {
+		wg.Add(1)
+		go updateMessage(message, &wg)
+		printMessage()
+		wg.Wait()
+	}
 }
