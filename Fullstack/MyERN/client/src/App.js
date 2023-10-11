@@ -15,7 +15,11 @@ function App() {
     <div className="App">
       {listOfPosts.map((val, key) => {
         return (
-          <div> {val.title} </div>
+          <div className='post'>
+            <div className='title'>{val.title}</div>
+            <div className='body'>{val.text}</div>
+            <div className='footer'>{val.username}</div>
+          </div>
         )
       })}
     </div>
