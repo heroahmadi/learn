@@ -8,7 +8,7 @@ app.use(express.json());
 
 // Routers
 const postRouter = require('./routes/Posts');
-app.use("/", postRouter);
+app.use("/post", postRouter);
 
 db.sequelize.sync().then(() => {
     app.listen(3001, () => {

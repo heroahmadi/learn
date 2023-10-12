@@ -2,8 +2,11 @@ import React from "react";
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function CreatePost() {
+    let navigate = useNavigate();
+
     const initialValues = {
         title: "",
         text: "",
@@ -11,8 +14,8 @@ function CreatePost() {
     };
 
     const onSubmit = (data) => {
-        axios.post("http://localhost:3001", data).then((response) => {
-            console.log("POSTED!");
+        axios.post("http://localhost:3001/post", data).then((response) => {
+            navigate('/post');
         });
     }
 
