@@ -5,12 +5,17 @@ import { useParams } from "react-router-dom";
 function Post() {
     let { id } = useParams();
     const [postObject, setPostObject] = useState({});
+    const [comments, setComments] = useState([]);
 
     useEffect(() => {
         axios.get(`http://localhost:3001/post/${id}`).then((resp) => {
              setPostObject(resp.data); 
-        })
-    });
+        });
+
+        axios.get(`http://localhost:3001/comment/${id}`).then((resp) => {
+             setComments(resp.data); 
+        });
+    }, []);
 
     return (
         <div className="postPage">
@@ -23,7 +28,15 @@ function Post() {
             </div>
 
             <div className="rightSide">
-                Comment section 
+                <div className="addCommentContainer">
+                    <input type="text" placeholder="Comment..." autoComplete="off"/>
+                    <button>Add Comment</button>
+                </div>
+                <div className="listOfComments">
+                    {comments.map((comment, key) => {
+                        return <div className="comment">{comment.text}</div>
+                    })}
+                </div>
             </div>
         </div>
     )
