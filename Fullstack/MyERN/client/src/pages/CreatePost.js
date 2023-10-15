@@ -13,17 +13,17 @@ function CreatePost() {
         username: ""
     };
 
-    const onSubmit = (data) => {
-        axios.post("http://localhost:3001/post", data).then((response) => {
-            navigate('/post');
-        });
-    }
-
     const validationScheme = Yup.object().shape({
         title: Yup.string().required("Title cannot be empty!"),
         text: Yup.string().required(),
         username: Yup.string().min(3).max(25).required()
     });
+
+    const onSubmit = (data) => {
+        axios.post("http://localhost:3001/post", data).then((response) => {
+            navigate('/post');
+        });
+    }
 
     return (
         <div className="createPostPage">
